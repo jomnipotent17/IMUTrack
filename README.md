@@ -1,10 +1,8 @@
 # IMUTrack
 What does text like this look like?
-'how about this?'
-'cd ..'
-'mkdir lol'
-'cd ..
-mkdir lol'
+`how about this?`
+`cd ..`
+`mkdir lol`
 
 ## Install
 
@@ -14,5 +12,4 @@ mkdir lol'
 
 
 ## Run
-
 `Code`
