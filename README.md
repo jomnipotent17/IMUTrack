@@ -1,6 +1,6 @@
 # IMUTrack
 What does text like this look like?
-'how about this?
+'how about this?'
 'cd ..'
 'mkdir lol'
 'cd ..
