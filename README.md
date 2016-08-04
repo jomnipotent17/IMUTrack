@@ -29,4 +29,11 @@ The original source code can be found at http://www.cs.cmu.edu/~myung/IMU_KLT/, 
 
 ## 2) Run
 1) Run
-`Code`
+
+./klt_tracker -f ConfigFile.cfg [-otherOption#1]
+
+## 3) Using a New Sequence
+Because the source code expected the IMU and Image data in a specific format and named specific things I have included all of the data already. However, if you were to use an arbitrary data set there are certain things that you would have to change...
+
+I've made a few scripts that rename files to what they are expected to be...
+
