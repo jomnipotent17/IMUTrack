@@ -9,28 +9,32 @@ The original source code can be found at http://www.cs.cmu.edu/~myung/IMU_KLT/, 
 
 ### Dependencies
 1) OpenCV
+	http://opencv.org/
 
 2) Intel IPP (Integrated Performance Primitives)
-	Version 7 or something, not the newest one. TODO: double check this one. 
+	https://software.intel.com/en-us/intel-ipp/
+	Version 7.1 
 
 3) NVIDIA CUDA Toolkit
+	https://developer.nvidia.com/cuda-toolkit
 
 4) CMake
 
 ### Build
-1) Download the Source Code
+
 `git clone https://github.com/jomnipotent17/IMUTrack`
+`cd IMUTrack`
 
-2) Make a build folder
+`mkdir build`
+`cd build`
 
-3) cmake 
-
-4) make
+`cmake ../src/klt_tracker_v1.0/`
+`make`
 
 ## 2) Run
 1) Run
 
-`./klt_tracker -f ConfigFile.cfg [-otherOption#1]`
+`./klt_tracker -f ConfigFile.cfg [-otherOption#1 param1] [-otherOption#2 param2] [...]`
 
 ## 3) Automated Running 
 I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. I have also created a MATLAB script that parses these log files and plots the results...
