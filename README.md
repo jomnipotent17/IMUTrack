@@ -30,9 +30,12 @@ The original source code can be found at http://www.cs.cmu.edu/~myung/IMU_KLT/, 
 ## 2) Run
 1) Run
 
-./klt_tracker -f ConfigFile.cfg [-otherOption#1]
+`./klt_tracker -f ConfigFile.cfg [-otherOption#1]`
 
-## 3) Using a New Sequence
+## 3) Automated Running 
+I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. I have also created a MATLAB script that parses these log files and plots the results...
+
+## 4) Using a New Sequence
 Because the source code expected the IMU and Image data in a specific format and named specific things I have included all of the data already. However, if you were to use an arbitrary data set there are certain things that you would have to change...
 
 I've made a few scripts that rename files to what they are expected to be...
