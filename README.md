@@ -22,14 +22,14 @@ The original source code can be found at http://www.cs.cmu.edu/~myung/IMU_KLT/, 
 
 ### Build
 
-`git clone https://github.com/jomnipotent17/IMUTrack`
-`cd IMUTrack`
-
-`mkdir build`
-`cd build`
-
-`cmake ../src/klt_tracker_v1.0/`
-`make`
+```
+git clone https://github.com/jomnipotent17/IMUTrack
+cd IMUTrack
+mkdir build
+cd build
+cmake ../src/klt_tracker_v1.0/
+make
+```
 
 ## 2) Run
 1) Run
