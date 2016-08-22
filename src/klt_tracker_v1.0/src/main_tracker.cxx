@@ -221,7 +221,8 @@ string logFileNameMaker()
 	//generate the log file name
 	
 	//directory where I want to store the log files
-	string logFile = "/home/matthew/klt_tracker_v1.0/bin/LogFiles/";
+	//string logFile = "/home/matthew/klt_tracker_v1.0/bin/LogFiles/";
+	string logFile = "LogFiles/";
 
 	string dataset;
 	string seq;
@@ -372,7 +373,7 @@ string logFileNameMaker()
 		}
 	}
 
-	logFile = logFile + dataset + "/" + seq + "/KLT_" + dataset + "_" + seq + "_" + model + ".csv";
+	logFile = logFile + "KLT_" + dataset + "_" + seq + "_" + model + ".csv";
 	cout << endl << "LogFile Name: " << logFile << endl << endl;
 
 	return logFile;

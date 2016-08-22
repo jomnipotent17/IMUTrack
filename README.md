@@ -29,6 +29,7 @@ mkdir build
 cd build
 cmake ../src/klt_tracker_v1.0/
 make
+mkdir LogFiles
 ```
 
 ## 2) Run
