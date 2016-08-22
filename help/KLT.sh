@@ -53,7 +53,7 @@ elif [ "$input" == 'No' ]; then
 	read it
 	echo "$it"
 	echo "What IMU Models Would You Like to Test?"
-	echo "Enter integers (1-3) separated by spaces"
+	echo "Enter integers (1-4) separated by spaces"
 	echo "1=noIMU, 2=IMU, 3=velocitySwitch, 4=axisAngleIntegration"
 	read jt
 	echo "$jt"
@@ -88,21 +88,21 @@ Sequences[11]=V2_01
 Sequences[12]=V2_02
 Sequences[13]=V2_03
 
+/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs
+Settings[1]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_01_c0.cfg 
+Settings[2]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_02_c0.cfg 
+Settings[3]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_03_c0.cfg 
+Settings[4]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_04_c0.cfg 
+Settings[5]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_05_c0.cfg 
+Settings[6]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/data_desk_scene.cfg 
+Settings[7]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/data_aerial_uav.cfg
 
-Settings[1]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_mh_01_c0.cfg 
-Settings[2]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_mh_02_c0.cfg 
-Settings[3]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_mh_03_c0.cfg 
-Settings[4]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_mh_04_c0.cfg 
-Settings[5]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_mh_05_c0.cfg 
-Settings[6]=/home/matthew/klt_tracker_v1.0/bin/data_desk_scene.cfg 
-Settings[7]=/home/matthew/klt_tracker_v1.0/bin/data_aerial_uav.cfg
-
-Settings[8]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_v1_01_c0.cfg 
-Settings[9]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_v1_02_c0.cfg 
-Settings[10]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_v1_03_c0.cfg 
-Settings[11]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_v2_01_c0.cfg 
-Settings[12]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_v2_02_c0.cfg  
-Settings[13]=/home/matthew/klt_tracker_v1.0/bin/EuRoC_v2_03_c0.cfg 
+Settings[8]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v1_01_c0.cfg 
+Settings[9]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v1_02_c0.cfg 
+Settings[10]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v1_03_c0.cfg 
+Settings[11]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v2_01_c0.cfg 
+Settings[12]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v2_02_c0.cfg  
+Settings[13]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v2_03_c0.cfg 
 
 
 Model[1]=noIMU
@@ -118,7 +118,8 @@ Model[4]=axisAngleIntegration
 ########################################################################
 
 #Move to the KLT Directory
-cd /home/matthew/klt_tracker_v1.0/bin
+cd /home/matthew/IMUTrack/build
+
 
 echo
 echo "Deleting Old Log Files (hit Enter to Continue)"
