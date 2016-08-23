@@ -11,9 +11,8 @@ The original source code can be found at http://www.cs.cmu.edu/~myung/IMU_KLT/, 
 1) OpenCV
 	http://opencv.org/
 
-2) Intel IPP (Integrated Performance Primitives)
-	https://software.intel.com/en-us/intel-ipp/
-	Version 7.1 
+2) Intel IPP (Integrated Performance Primitives) Version 7.1
+	https://registrationcenter.intel.com/en/forms/?licensetype=2&productid=2380
 
 3) NVIDIA CUDA Toolkit
 	https://developer.nvidia.com/cuda-toolkit
