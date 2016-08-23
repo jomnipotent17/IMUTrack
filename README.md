@@ -29,13 +29,29 @@ mkdir build
 cd build
 cmake ../src/klt_tracker_v1.0/
 make
+```
+Add a folder for the logfiles
+```
 mkdir LogFiles
 ```
+
+### Download Datasets
+
+Download and extract the preformatted data
+```
+cd ../src/klt_tracker_v1.0
+wget -O data.zip https://www.dropbox.com/s/1hk46a3i51aayws/KLT_data.zip?dl=0
+unzip data.zip
+```
+
 
 ## 2) Run
 1) Run
 
-`./klt_tracker -f ConfigFile.cfg [-otherOption#1 param1] [-otherOption#2 param2] [...]`
+```
+cd ../../build
+./klt_tracker -f ConfigFile.cfg [-otherOption#1 param1] [-otherOption#2 param2] [...]
+```
 
 ## 3) Automated Running 
 I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. I have also created a MATLAB script that parses these log files and plots the results...
@@ -44,4 +60,14 @@ I have made a script that runs the requested imu methods with whatever sequences
 Because the source code expected the IMU and Image data in a specific format and named specific things I have included all of the data already. However, if you were to use an arbitrary data set there are certain things that you would have to change...
 
 I've made a few scripts that rename files to what they are expected to be...
+
+Currently there are 13 different sequences contained in the proper format for this code. They are:
+
+EuRoC Mav Dataset (11 sequences)
+	http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets
+
+Myung Dataset (2 sequences)
+	http://www.cs.cmu.edu/~myung/IMU_KLT/
+
+
 
