@@ -34,7 +34,7 @@ Add a folder for the logfiles
 mkdir LogFiles
 ```
 
-### Download Datasets
+## 2) Download Datasets
 
 Download and extract the preformatted data
 ```
@@ -44,8 +44,7 @@ unzip data.zip
 ```
 
 
-## 2) Run
-1) Run
+## 3) Run
 
 To run the program, head back to the build folder
 ```
@@ -93,13 +92,15 @@ So, therefore to run the EuRoC machine hall #2 sequence with the velocity Switch
 
 
 
-## 3) Automated Running 
+## 4) Automated Running 
 I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. I have also created a MATLAB script that parses these log files and plots the results...
 
-## 4) Using a New Sequence
+## 5) Using a New Sequence
 Because the source code expected the IMU and Image data in a specific format and named specific things I have included all of the data already. However, if you were to use an arbitrary data set there are certain things that you would have to change...
 
 I've made a few scripts that rename files to what they are expected to be...
+
+
 
 Currently there are 13 different sequences contained in the proper format for this code. They are:
 
