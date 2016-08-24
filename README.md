@@ -93,7 +93,21 @@ So, therefore to run the EuRoC machine hall #2 sequence with the velocity Switch
 
 
 ## 4) Automated Running 
-I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. I have also created a MATLAB script that parses these log files and plots the results...
+I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. 
+
+Go to the help folder and run the script. Then, follow the instructions to select what you want to run.
+```
+cd ../help
+./KLT.sh
+```
+
+
+## 5) Automated Results Generation
+I have also created a MATLAB script that parses these log files and plots the results.
+
+They are also in the help folder within the MATLAB folder.
+
+
 
 ## 5) Using a New Sequence
 Because the source code expected the IMU and Image data in a specific format and named specific things I have included all of the data already. However, if you were to use an arbitrary data set there are certain things that you would have to change...
