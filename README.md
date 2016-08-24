@@ -8,7 +8,7 @@ The original source code can be found at http://www.cs.cmu.edu/~myung/IMU_KLT/, 
 ## 1) Install
 
 ### Dependencies
-1) OpenCV
+1) OpenCV (tested with 2.4.11)
 	http://opencv.org/
 
 2) Intel IPP (Integrated Performance Primitives) Version 7.1
@@ -109,7 +109,7 @@ They are also in the help folder within the MATLAB folder.
 
 
 
-## 5) Using a New Sequence
+## 6) Using a New Sequence
 Because the source code expected the IMU and Image data in a specific format and named specific things I have included all of the data already. However, if you were to use an arbitrary data set there are certain things that you would have to change...
 
 I've made a few scripts that rename files to what they are expected to be...
