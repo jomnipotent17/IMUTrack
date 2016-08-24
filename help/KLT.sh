@@ -34,7 +34,7 @@ sleep 2
 
 echo
 echo "Would You Like To Run all of the Experiments? ('Yes', 'No' or 'Quit')"
-echo "(Estimated Time:  1hr 29min)"
+echo "(Estimated Time:  1hr+)"
 
 read input
 
@@ -47,7 +47,7 @@ if [ "$input" == 'Yes' ]; then
 elif [ "$input" == 'No' ]; then
 	echo
 	echo "What Sequences Would You Like to Run?"
-	echo "Enter integers (1-7) separated by spaces"
+	echo "Enter integers (1-13) separated by spaces"
 	echo "1=MH01, 2=MH02, 3=MH03, 4=MH04, 5=MH05, 6=Desk, 7=Aerial"
 	echo "8=V1_1, 9=V1_2, 10=V1_3, 11=V2_1, 12=V2_2, 13=V2_3"
 	read it
@@ -88,21 +88,21 @@ Sequences[11]=V2_01
 Sequences[12]=V2_02
 Sequences[13]=V2_03
 
-/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs
-Settings[1]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_01_c0.cfg 
-Settings[2]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_02_c0.cfg 
-Settings[3]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_03_c0.cfg 
-Settings[4]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_04_c0.cfg 
-Settings[5]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_mh_05_c0.cfg 
-Settings[6]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/data_desk_scene.cfg 
-Settings[7]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/data_aerial_uav.cfg
 
-Settings[8]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v1_01_c0.cfg 
-Settings[9]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v1_02_c0.cfg 
-Settings[10]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v1_03_c0.cfg 
-Settings[11]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v2_01_c0.cfg 
-Settings[12]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v2_02_c0.cfg  
-Settings[13]=/home/matthew/IMUTrack/src/klt_tracker_v1.0/configs/EuRoC_v2_03_c0.cfg 
+Settings[1]=../src/klt_tracker_v1.0/configs/EuRoC_mh_01_c0.cfg 
+Settings[2]=../src/klt_tracker_v1.0/configs/EuRoC_mh_02_c0.cfg 
+Settings[3]=../src/klt_tracker_v1.0/configs/EuRoC_mh_03_c0.cfg 
+Settings[4]=../src/klt_tracker_v1.0/configs/EuRoC_mh_04_c0.cfg 
+Settings[5]=../src/klt_tracker_v1.0/configs/EuRoC_mh_05_c0.cfg 
+Settings[6]=../src/klt_tracker_v1.0/configs/data_desk_scene.cfg 
+Settings[7]=../src/klt_tracker_v1.0/configs/data_aerial_uav.cfg
+
+Settings[8]=../src/klt_tracker_v1.0/configs/EuRoC_v1_01_c0.cfg 
+Settings[9]=../src/klt_tracker_v1.0/configs/EuRoC_v1_02_c0.cfg 
+Settings[10]=../src/klt_tracker_v1.0/configs/EuRoC_v1_03_c0.cfg 
+Settings[11]=../src/klt_tracker_v1.0/configs/EuRoC_v2_01_c0.cfg 
+Settings[12]=../src/klt_tracker_v1.0/configs/EuRoC_v2_02_c0.cfg  
+Settings[13]=../src/klt_tracker_v1.0/configs/EuRoC_v2_03_c0.cfg 
 
 
 Model[1]=noIMU
@@ -118,7 +118,7 @@ Model[4]=axisAngleIntegration
 ########################################################################
 
 #Move to the KLT Directory
-cd /home/matthew/IMUTrack/build
+cd ../build
 
 
 echo

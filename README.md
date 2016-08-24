@@ -47,10 +47,61 @@ unzip data.zip
 ## 2) Run
 1) Run
 
+To run the program, head back to the build folder
 ```
 cd ../../build
-./klt_tracker -f ConfigFile.cfg [-otherOption#1 param1] [-otherOption#2 param2] [...]
 ```
+And select a sequence and model to run using the following format (there are other options as well but for simplicity we'll just show these)
+```
+./klt_tracker -f ConfigFile.cfg -seq (SEQUENCE#) -model (MODEL#)
+```
+Where the sequence and Config File must match in order for the log files to generate properly and also for the sensor extrinsics to be loaded properly for the correct sequence.
+
+ConfigFile.cfg     |     SEQUENCE#
+
+EuRoC_mh_01_c0.cfg       1
+
+EuRoC_mh_02_c0.cfg       2
+
+EuRoC_mh_03_c0.cfg       3
+
+EuRoC_mh_04_c0.cfg       4
+
+EuRoC_mh_05_c0.cfg       5
+
+data_aerial_uav.cfg      6
+
+data_desk_scene.cfg      7
+
+EuRoC_v1_01_c0.cfg       8
+
+EuRoC_v1_02_c0.cfg       9
+
+EuRoC_v1_03_c0.cfg       10
+
+EuRoC_v2_01_c0.cfg       11
+
+EuRoC_v2_02_c0.cfg       12
+
+EuRoC_v2_03_c0.cfg       13
+
+
+And the current model setup is as follows
+
+Integration Model  |     MODEL#
+
+noIMU                    1
+MyungIMU                 2
+velocitySwitch           3
+axisAngleIntegration     4
+
+
+So, therefore to run the EuRoC machine hall #2 sequence with the velocity Switch model we would do the following
+```
+./klt_tracker -f ../src/klt_tracker_v1.0/configs/EuRoC_mh_02_c0.cfg -seq 2 -model 3
+```
+
+
 
 ## 3) Automated Running 
 I have made a script that runs the requested imu methods with whatever sequences are desired. The log files are then zipped up together and saved with their timestamp. I have also created a MATLAB script that parses these log files and plots the results...
