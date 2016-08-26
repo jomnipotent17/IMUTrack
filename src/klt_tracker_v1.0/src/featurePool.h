@@ -97,7 +97,7 @@ public:
 	list<int>& GetActiveIDs(int frame = -1);
 
 	//! Save the tracking results
-	void SaveToFile(int timestamp, const char* fname, double time);
+	void SaveToFile(int timestamp, const char* fname, double time, int width, int height);
 	
 	//! Get the statistical results of tracking.
 	CFeatureTrackStat& GetStat(int frame = -1);
