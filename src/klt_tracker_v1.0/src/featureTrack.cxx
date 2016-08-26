@@ -101,9 +101,7 @@ int CFeature2DTrack::Run(int frame, CImagePyramid *newPyr, CvMat* ff_motion)
 	m_pAligner->PredictFromCameraMotion(ff_motion);
 
 
-	//cout << "Run Line: " << __LINE__ << endl;
-	m_pAligner->AlignPyramid(newPyr);	//TODO Seg faulting Here
-	//cout << "Run Line: " << __LINE__ << endl;
+	m_pAligner->AlignPyramid(newPyr);	
 
 	m_pAligner->UpdateStatus();
 

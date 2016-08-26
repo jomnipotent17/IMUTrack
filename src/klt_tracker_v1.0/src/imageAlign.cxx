@@ -414,7 +414,7 @@ int CImageAlign::AlignPyramid(CImagePyramid* Ipyr)
 		while(!converged && (iter_level < MAX_STEPS_LEVEL)) {
 			//cout << "Align Pyramid LINE: " << __LINE__ << endl;
 			//cout << "iter_level = " << iter_level << endl;
-			Align(i, m_alignMode[i], (*Ipyr)[i]);		//seg faulting here TODO
+			Align(i, m_alignMode[i], (*Ipyr)[i]);
 			//cout << "Align Pyramid LINE: " << __LINE__ << endl;
 			converged = (m_uv_correct < MIN_UV_CHANGE);
 			iter_level++;
@@ -444,7 +444,7 @@ bool CImageAlign::Align(int level, ALIGNMENT_METHOD_ENUM mode, IplImage* I_whole
 		if ((iter > 0 && m_uv_correct <= MAX_UV_CHANGE) || m_reset) {
 			m_reset = false;
 			//cout << "Align ln: " << __LINE__ << endl;
-			WarpBackImage(I_whole, m_imgI[level], m_roi[level], m_motion);	//SEG Faulting Here TODO
+			WarpBackImage(I_whole, m_imgI[level], m_roi[level], m_motion);
 			//cout << "Align ln: " << __LINE__ << endl;
 			m_RMS_error = ComputeError(level);
 			if( (iter == 0) && (level == 2) )
@@ -643,7 +643,6 @@ void CImageAlign::WarpPoint(CvMat* M, CvMat* p, CvMat* w)
 // The origin of the coordinate the motion is described in is the top left of a tracker window.
 // Note that, however, the ippiWarp() has the top left corner of a whole image as an origin
 //
-//TODO Find the seg fault here
 void CImageAlign::WarpBackImage(IplImage* I_whole, IplImage* I, CvRect r, CvMat* motion)
 {
 	//cout << "Warp ln: " << __LINE__ << endl;

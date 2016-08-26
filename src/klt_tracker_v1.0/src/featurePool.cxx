@@ -348,7 +348,7 @@ void CFeature2DPool::Track(int frame, int timestamp, IplImage* gimgf, double* Hm
 		}*/
 		// Run KLT tracker
 		//cout << endl << "///////////////////////   Before Run    ///////////////////////" << endl;
-		int status = pTracker->Run(frame, m_pyr, H);	//TODO Seg Faulting here!
+		int status = pTracker->Run(frame, m_pyr, H);
 /*
 		if(status & CImageAlign::TRACK_FAIL)
 			cout << "Lost Tracking!" << endl; 
