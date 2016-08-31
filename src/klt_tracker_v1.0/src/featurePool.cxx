@@ -412,7 +412,7 @@ CFeatureTrackStat& CFeature2DPool::GetStat(int frame)
 	}
 }
 
-void CFeature2DPool::SaveToFile(int timestamp, const char* fname, double time)
+void CFeature2DPool::SaveToFile(int timestamp, const char* fname, double time, int width, int height)
 {
 	static ofstream fsave(fname);
 	
@@ -426,6 +426,7 @@ void CFeature2DPool::SaveToFile(int timestamp, const char* fname, double time)
 	fsave << setprecision(2) << setiosflags(ios::fixed) << stat.time_select*1e3 << ",";
 	fsave << setprecision(2) << setiosflags(ios::fixed) << stat.time_track*1e3 << endl;
 	fsave << setprecision(10) << time << endl;
+	fsave << width << "," << height << endl;
 	
 	list<int> listID = GetActiveIDs();
 	fsave << listID.size() << endl;
@@ -445,6 +446,8 @@ void CFeature2DPool::SaveToFile(int timestamp, const char* fname, double time)
 		fsave << setprecision(2) << fp->m_y << ",";
 		fsave << setprecision(5) << fp->m_nx << ",";
 		fsave << setprecision(5) << fp->m_ny << ",";
+		fsave << setprecision(5) << fp->m_x0 << ",";
+		fsave << setprecision(5) << fp->m_y0 << ",";
 		fsave << setprecision(5) << fp->m_rms_In << ",";
 		fsave << setprecision(5) << fp->m_rms;
 		fsave << endl;

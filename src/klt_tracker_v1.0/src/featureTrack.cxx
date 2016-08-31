@@ -98,10 +98,10 @@ float CFeature2DTrack::GetShear()
 int CFeature2DTrack::Run(int frame, CImagePyramid *newPyr, CvMat* ff_motion)
 {
 	m_pAligner->ResetStatus();
-	m_pAligner->PredictFromCameraMotion(ff_motion);
+	m_pAligner->PredictFromCameraMotion(ff_motion);		//fp0 is set within this function
 
 
-	m_pAligner->AlignPyramid(newPyr);	
+	m_pAligner->AlignPyramid(newPyr);					//here, the tracking actually occurs
 
 	m_pAligner->UpdateStatus();
 

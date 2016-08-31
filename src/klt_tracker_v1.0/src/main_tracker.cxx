@@ -186,7 +186,7 @@ int main(int argc, char* argv[])
 		featurePool->Purge(frame, 10);		
 		t3 = timer.Stop();
 		//if (b_log) featurePool->SaveToFile(0, track_log_name,t3-t0);
-		if (b_log) featurePool->SaveToFile(0, newTrackLogName,t3-t0);
+		if (b_log) featurePool->SaveToFile(0, newTrackLogName, t3-t0, img_width, img_height);
 		
 
 		//
