@@ -7,12 +7,19 @@ function [frameData, Hist] = Modular_KLT_Function( inputFile )
 %(frame) (timestamp hard-coded to 0, don’t know why they did )
 %(stat.n_new) (stat.n_success) (stat.n_total)
 %(stat.time_select*1e3) (stat.time_track*1e3)
-%(time to track t3-t0 actual track time, others are 0)  
+%(time to track t3-t0 actual track time, others are 0)
+%(image_width) (image_height)
 %(listID.size()  # of features)
-%(id) (m_x)  (m_y)  (m_nx) (m_ny) (ErrorB4) (ErrorAfter)
-%(id) (m_x)  (m_y)  (m_nx) (m_ny) (ErrorB4) (ErrorAfter)
-%(id) (m_x)  (m_y)  (m_nx) (m_ny) (ErrorB4) (ErrorAfter)
+%(id) (m_x)  (m_y)  (m_nx) (m_ny) (x0) (y0) (rmsErrorB4) (rmsErrorAfter)
+%(id) (m_x)  (m_y)  (m_nx) (m_ny) (x0) (y0) (rmsErrorB4) (rmsErrorAfter)
+%(id) (m_x)  (m_y)  (m_nx) (m_ny) (x0) (y0) (rmsErrorB4) (rmsErrorAfter)
 %...
+
+% Last Format 
+%...
+%(time)
+% (# of features)
+%(id) (m_x)  (m_y)  (m_nx) (m_ny) (rmsErrorB4) (rmsErrorAfter)
 
 %inputFile = 'log_EuRoC_MH01_IMU_150.csv';
 %inputFile = 'log_Myung_Aerial_IMU_150.csv';
@@ -32,22 +39,40 @@ frameIdx = 1;
 matches = zeros(3000,5);
 features = zeros(4500,35000);
 
+%Variables for Reprojection Error Function
+% (id) (x-coord) (y-coord)
+fpDataCurr = zeros(300,3);
+fpDataGuess = zeros(300,3);
+fpDataLast = zeros(300,3);
+
 while (idx < length(M) )
     matches(frameIdx,1) = M(idx,1);
     matches(frameIdx,2) = M(idx+1,2);
     matches(frameIdx,3) = M(idx+3,1);
-    count = M(idx+4,1);
-    idx = idx + 5;
-    BeforeErrorSum = 0;
-    AfterErrorSum = 0;
+    %img_width = M(idx+4,1);
+    %img_height = M(idx+4,2);
+    count = M(idx+5,1);
+    idx = idx + 6;
+    %BeforeErrorSum = 0;
+    %AfterErrorSum = 0;
     for i = 1:count
         features(frameIdx,M(idx,1)+1 ) = 1; %adjust to make index start @1
-        BeforeErrorSum = BeforeErrorSum + M(idx,6);
-        AfterErrorSum = AfterErrorSum + M(idx,7);
+        fpDataCurr(i,1) = M(idx,1) + 1;     %frameID
+        fpDataCurr(i,2) = M(idx,2);         %x-coord
+        fpDataCurr(i,3) = M(idx,3);         %y-coord
+        fpDataGuess(i,1) = M(idx,1) + 1;     %frameID
+        fpDataGuess(i,2) = M(idx,2);         %x-coord
+        fpDataGuess(i,3) = M(idx,3);         %y-coord
+        %BeforeErrorSum = BeforeErrorSum + M(idx,8);    %old, wrong error
+        %AfterErrorSum = AfterErrorSum + M(idx,9);
         idx = idx + 1;
     end
-    matches(frameIdx,4) = BeforeErrorSum / count;
-    matches(frameIdx,5) = AfterErrorSum / count;
+    %Compute Reprojection Errors
+    matches(frameIdx,4) = RepError(fpDataLast,fpDataGuess); %Before
+    matches(frameIdx,5) = RepError(fpDataLast,fpDataCurr); %After
+    fpDataLast = fpDataCurr;    %Update Last Variable
+    %matches(frameIdx,4) = BeforeErrorSum / count;      %old, wrong error
+    %matches(frameIdx,5) = AfterErrorSum / count;
     frameIdx = frameIdx + 1;
 end 
 %%
