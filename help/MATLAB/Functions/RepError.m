@@ -20,7 +20,7 @@ for i=1:length(frame1)
     while(frame2(j,1) < frame1(i,1))
         j = j + 1;
     end
-    if(frame(i,1) == frame2(j,1))
+    if(frame1(i,1) == frame2(j,1))
        %we have a match, copy the data into the matched variables
        matchedPoints1(k,1:2) = frame1(i,2:3);
        matchedPoints2(k,1:2) = frame2(j,2:3);
@@ -37,18 +37,31 @@ end
 %matchedPoints1 = (x y; x y; ...)
 %matchedPoints2 = ''
 
+%debug
+figure;
+plot(matchedPoints1(:,1),matchedPoints1(:,2),'r.'); hold on;
+plot(matchedPoints2(:,1),matchedPoints2(:,2),'b.');
+for i=1:size(matchedPoints1,1),
+    line([matchedPoints1(i,1) matchedPoints2(i,1)],[matchedPoints1(i,2) matchedPoints2(i,2)],'Color','g');
+end
+
 %% Step 2: Construct the Fundamental Matrix
-F = estimateFundamentalMatrix(matchedPoints1,matchedPoints2);
+F = estimateFundamentalMatrix(matchedPoints1,matchedPoints2,'Method','RANSAC','NumTrials',2000,'DistanceThreshold',1e-4);
 
 %% Step 3: Warp Points from Frame 2 to Frame 1
 matchedPoints2(:,3) = ones();   %turn into homogenous coordinates
 mP2 = matchedPoints2.';         %transpose this for easy multiplication
 
 warpedPoints = F*mP2;           %multiply (warp the points)
+warpedPoints = warpedPoints ./ repmat(warpedPoints(3,:),[3 1]); % scale so that w = 1 
 warpedPoints = warpedPoints.';  %transpose to be in same format as other points
+plot(warpedPoints(:,1),warpedPoints(:,2),'m.');
+for i=1:size(matchedPoints1,1),
+    line([matchedPoints1(i,1) warpedPoints(i,1)],[matchedPoints1(i,2) warpedPoints(i,2)],'Color','g');
+end
 
 %% Step 4: Compute the individual errors
-errorInd = zeros(length(matchedPoints1));
+errorInd = zeros(length(matchedPoints1),1);
 for i = 1:length(matchedPoints1)
    errorInd(i) = sqrt((matchedPoints1(i,1) - warpedPoints(i,1))^2 + (matchedPoints1(i,2) - warpedPoints(i,2))^2  );
 end

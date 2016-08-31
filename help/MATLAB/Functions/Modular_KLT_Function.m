@@ -1,7 +1,7 @@
 function [frameData, Hist] = Modular_KLT_Function( inputFile )
 % This Function Opens the Custom KLT LogFile We Made,
 % parses through it and extracts all of the relevant data
-
+inputFile = 'KLT_Myung_Desk_noIMU.csv';
 % Current Structure of KLT Log File
 
 %(frame) (timestamp hard-coded to 0, don’t know why they did )
